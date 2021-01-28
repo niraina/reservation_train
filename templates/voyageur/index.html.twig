@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voyageur{% endblock %}
+
+{% block body %}
+    <h1>Voyageur</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Numero</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voyageur in voyageurs %}
+            <tr>
+                
+                <td>{{ voyageur.numerovoyageur }}</td>
+                <td>{{ voyageur.nom }}</td>
+                <td>
+                    <a href="{{ path('voyageur_edit', {'id': voyageur.id}) }}"><button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
+                    <a href="{{ path('voyageur_delete', {'id': voyageur.id}) }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div align ="center">
+        <a href="{{ path('voyageur_new') }}"><button type="button" class="btn btn-primary btn-lg btn-block">AJOUTER</button></a>
+    </div>
+    {{ include("partials/footer.html.twig") }}
+{% endblock %}

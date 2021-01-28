@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voyageur{% endblock %}
+
+{% block body %}
+    <h1>Nouveau Voyageur</h1>
+
+    {{ include('voyageur/_form.html.twig') }}
+
+    <a href="{{ path('voyageur_index') }}">back to list</a>
+    {{ include("partials/footer.html.twig") }}
+{% endblock %}
